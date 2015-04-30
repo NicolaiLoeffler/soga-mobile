@@ -3,18 +3,18 @@ angular.module('soga')
 
         $scope.config = {
             name: '',
-            moisture: ''
+            moisture: 0
         };
 
         $scope.incMoisture = function() {
-            if($scope.moisture < 100) {
-                $scope.moisture += 1;
+            if($scope.config.moisture != 100) {
+                $scope.config.moisture = +$scope.config.moisture + 1;
             }
         };
 
         $scope.decMoisture = function() {
-            if($scope.moisture > 0) {
-                $scope.moisture -= 1;
+            if($scope.config.moisture != 0) {
+                $scope.config.moisture = +$scope.config.moisture - 1;
             }
         };
 

@@ -8,9 +8,9 @@
         <div class="row">
             <div class="col">
                 <div class="item range">
-                    <i class="icon ion-android-remove-circle"></i>
+                    <span class="icon ion-android-remove-circle" ng-click="decMoisture()"></span>
                     <input type="range" name="volume" ng-model="config.moisture">
-                    <i class="icon ion-android-add-circle"></i>
+                    <span class="icon ion-android-add-circle" ng-click="incMoisture()"></span>
                 </div>
             </div>
             <div class="col">
