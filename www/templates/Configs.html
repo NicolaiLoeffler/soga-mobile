@@ -1,9 +1,18 @@
 <ion-view view-title="Configurations" ng-controller="ConfigOverviewCtrl">
     <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="config in configs">
+        <a ng-href="/#/configs/newConfig">
+        <button class="button button-balanced ion-plus">
+            New Configuration
+        </button>
+        </a>
+        <div class="list">
+
+            <div class="item item-button-right" ng-repeat="config in configs">
                 {{config}}
-            </ion-item>
-        </ion-list>
+                <button class="button button-assertive" ng-click="ConfigOverviewCtrl.deleteConfig()">
+                    <i class="ion-ios-close-empty"></i>
+                </button>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

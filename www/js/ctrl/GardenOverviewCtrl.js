@@ -3,11 +3,11 @@
  */
 
 angular.module('soga')
-    .controller('GardenOverviewCtrl', function($scope, GardenService) {
+    .controller('GardenOverviewCtrl', function ($scope, GardenService) {
         $scope.plants;
 
         GardenService.getGarden()
-            .then(function(resp) {
+            .then(function (resp) {
                 $scope.plants = resp.data;
             });
     });

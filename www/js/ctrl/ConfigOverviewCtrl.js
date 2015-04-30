@@ -13,4 +13,10 @@ angular.module('soga')
             .then(function(resp) {
                 $scope.configs = resp.data;
             });
+
+        $scope.deleteConfig = function() {
+            console.info("joasd");
+        };
+
+
     });
