@@ -2,22 +2,22 @@
     <ion-content>
         <label class="item item-input">
             <span class="input-label">Configuration Name</span>
-            <input type="text" placeholder="Enter Name">
+            <input ng-model="config.name" type="text" placeholder="Enter Name">
         </label>
 
         <div class="row">
             <div class="col">
                 <div class="item range">
                     <i class="icon ion-android-remove-circle"></i>
-                    <input type="range" name="volume" ng-model="NewConfigCtrl.moisture">
+                    <input type="range" name="volume" ng-model="config.moisture">
                     <i class="icon ion-android-add-circle"></i>
                 </div>
             </div>
             <div class="col">
-                {{NewConfigCtrl.moisture}}
+                {{config.moisture}}
             </div>
         </div>
-        <button class="button button-balanced button-assertive">
+        <button ng-click="saveConfig()" class="button button-balanced button-assertive">
             Save
         </button>
     </ion-content>

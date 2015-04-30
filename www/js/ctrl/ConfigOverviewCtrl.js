@@ -6,7 +6,7 @@ angular.module('soga')
     .controller('ConfigOverviewCtrl', function($scope, ConfigService) {
         $scope.configs;
 
-        ConfigService.getPlants()
+        ConfigService.getConfigs()
             .error(function(resp) {
                 alert("getConfigsFailed");
             })
@@ -17,6 +17,4 @@ angular.module('soga')
         $scope.deleteConfig = function() {
             console.info("joasd");
         };
-
-
     });
