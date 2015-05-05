@@ -5,6 +5,7 @@
 angular.module('soga')
     .controller('ConfigOverviewCtrl', function($scope, ConfigService) {
         $scope.configs;
+        $scope.query;
 
         ConfigService.getConfigs()
             .error(function(resp) {
