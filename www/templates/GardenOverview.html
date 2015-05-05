@@ -1,9 +1,22 @@
 <ion-view view-title="My Garden" ng-controller="GardenOverviewCtrl">
     <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="plant in plants">
-                {{plant}}
-            </ion-item>
-        </ion-list>
+            <div class="card" ng-repeat="device in devices">
+                <div class="item item-divider">
+                    Devicename: {{device}}
+                </div>
+                <div class="item">
+                    Status: Not Connected
+                </div>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Configuration
+                    </div>
+                    <select>
+                        <option ng-repeat="config in configs">{{config}}</option>
+                    </select>
+                </label>
+
+
+            </div>
     </ion-content>
 </ion-view>

@@ -4,7 +4,7 @@
 angular.module('soga')
     .service('GardenService', function($http) {
         return {
-            getGarden: function() {
+            getDevices: function() {
                 return $http.get('http://localhost:3000/plants');
             }
         };
