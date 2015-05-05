@@ -3,7 +3,7 @@
  */
 
 angular.module('soga')
-    .controller('ConfigOverviewCtrl', function($scope, ConfigService) {
+    .controller('ConfigOverviewCtrl', function($scope, $ionicPopup, ConfigService) {
         $scope.configs;
         $scope.query;
 
@@ -15,7 +15,22 @@ angular.module('soga')
                 $scope.configs = resp.data;
             });
 
+        // A confirm dialog
+        $scope.showConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Confirmation',
+                template: 'Are you sure you want to delete this configuration?'
+            });
+            confirmPopup.then(function(res) {
+                if(res) {
+                    console.log('You are sure');
+                } else {
+                    console.log('You are not sure');
+                }
+            });
+        };
+
         $scope.deleteConfig = function() {
-            console.info("joasd");
+            console.info("Config deleted");
         };
     });
