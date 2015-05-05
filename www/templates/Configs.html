@@ -3,18 +3,18 @@
         <div class="row">
             <div class="col col-25">
                 <a ng-href="/#/configs/newConfig">
-                    <button class="button button-balanced button-small ion-plus">
+                    <button class="button button-balanced ion-plus">
                         New
                     </button>
                 </a>
             </div>
             <div class="col col-75">
-                <div class="bar bar-header item-input-inset">
+                <div class="item-input-inset">
                     <label class="item-input-wrapper">
                         <i class="icon ion-ios-search placeholder-icon"></i>
                         <input ng-model="query" type="search" placeholder="Search">
                     </label>
-                    <button class="button button-clear" ng-click="clear()">
+                    <button class="button button-clear" ng-click="query=''">
                         Clear
                     </button>
                 </div>
