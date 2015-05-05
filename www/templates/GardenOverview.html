@@ -2,21 +2,19 @@
     <ion-content>
             <div class="card" ng-repeat="device in devices">
                 <div class="item item-divider">
-                    Devicename: {{device}}
+                    Devicename: {{device.name}}
                 </div>
                 <div class="item">
-                    Status: Not Connected
+                    Status: {{device.status}}
                 </div>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Configuration
                     </div>
-                    <select>
+                    <select ng-model="device.config">
                         <option ng-repeat="config in configs">{{config}}</option>
                     </select>
                 </label>
-
-
             </div>
     </ion-content>
 </ion-view>

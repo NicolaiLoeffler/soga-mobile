@@ -29,6 +29,14 @@ angular.module('soga', ['ionic'])
                     }
                 }
             })
+            .state('config', {
+                url: '/configs/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: '../templates/Config.html'
+                    }
+                }
+            })
     })
 
 

@@ -6,6 +6,7 @@ angular.module('soga')
     .controller('GardenOverviewCtrl', function ($scope, GardenService, ConfigService) {
         $scope.devices;
         $scope.configs;
+        $scope.sel;
 
         GardenService.getDevices()
             .then(function (resp) {
