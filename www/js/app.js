@@ -14,6 +14,7 @@ angular.module('soga', ['ionic'])
                 }
             })
             .state('configs', {
+                cache: false,
                 url: '/configs',
                 views: {
                     'menuContent': {

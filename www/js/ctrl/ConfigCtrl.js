@@ -3,16 +3,16 @@
  */
 
 angular.module('soga')
-    .controller('ConfigOverviewCtrl', function($scope, $ionicPopup, ConfigService) {
-        $scope.configs;
-        $scope.query;
+    .controller('ConfigCtrl', function($scope, $ionicPopup, $stateParams, ConfigService) {
 
-        ConfigService.getConfigs()
+        $scope.config;
+
+        ConfigService.getConfig($stateParams.name)
             .error(function(resp) {
-                alert("getConfigsFailed");
+                console.info('Failed getting config ('+name+')');
             })
             .then(function(resp) {
-                $scope.configs = resp.data;
+                $scope.config = resp.data;
                 console.info(resp.data);
             });
 
