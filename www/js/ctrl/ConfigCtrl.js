@@ -28,4 +28,9 @@ angular.module('soga')
                 }
             });
         };
-    });
+
+        $scope.saveConfig = function() {
+            console.info($scope.config);
+            ConfigService.saveConfig($scope.config);
+        };
+});

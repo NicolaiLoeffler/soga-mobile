@@ -8,14 +8,16 @@ angular.module('soga')
                 return $http.get('http://localhost:3000/configs');
             },
             getConfig: function(name) {
-              return $http.get('http://localhost:3000/configs/'+name);
+                return $http.get('http://localhost:3000/configs/'+name);
             },
             newConfig: function(data) {
                 return $http.post('http://localhost:3000/newConfig', data);
             },
             deleteConfig: function(name) {
-              console.info(name);
                 return $http.delete('http://localhost:3000/configs/'+name);
+            },
+            saveConfig: function(data) {
+                return $http.put('http://localhost:3000/configs', data);
             }
         };
     });
