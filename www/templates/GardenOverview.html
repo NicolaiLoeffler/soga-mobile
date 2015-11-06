@@ -11,7 +11,7 @@
                     <div class="input-label">
                         Configuration
                     </div>
-                    <select ng-model="device.config">
+                    <select ng-model="device.config" ng-change="assignConfig(device)">
                         <option ng-repeat="config in configs">{{config}}</option>
                     </select>
                 </label>
