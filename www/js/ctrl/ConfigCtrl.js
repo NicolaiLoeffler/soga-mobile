@@ -9,7 +9,7 @@ angular.module('soga')
 
         ConfigService.getConfig($stateParams.name)
             .error(function(resp) {
-                console.info('Failed getting config ('+name+')');
+                console.info('Failed getting config (' + name + ')');
             })
             .then(function(resp) {
                 $scope.config = resp.data;
@@ -23,7 +23,7 @@ angular.module('soga')
                 template: 'Are you sure you want to delete this configuration?'
             });
             confirmPopup.then(function(res) {
-                if(res) {
+                if (res) {
                     ConfigService.deleteConfig(name);
                 }
             });
@@ -33,4 +33,4 @@ angular.module('soga')
             console.info($scope.config);
             ConfigService.saveConfig($scope.config);
         };
-});
+    });

@@ -8,7 +8,7 @@ angular.module('soga')
                 return $http.get('http://localhost:3000/devices');
             },
             assignConfig: function(device) {
-              return $http.post('http://localhost:3000/devices', device);
+                return $http.post('http://localhost:3000/devices', device);
             }
         };
     });
