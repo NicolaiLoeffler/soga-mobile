@@ -2,13 +2,13 @@
  * Created by niloeffl on 21.04.15.
  */
 angular.module('soga')
-    .service('GardenService', function($http) {
+    .service('GardenService', function($http, baseUrl) {
         return {
             getDevices: function() {
-                return $http.get('http://localhost:3000/devices');
+                return $http.get(baseUrl + '/devices');
             },
             assignConfig: function(device) {
-                return $http.post('http://localhost:3000/devices', device);
+                return $http.post(baseUrl + '/devices', device);
             }
         };
     });

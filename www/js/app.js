@@ -3,6 +3,7 @@ angular.module('soga', ['ionic'])
 .config(function($urlRouterProvider, $stateProvider, $compileProvider) {
     $compileProvider.debugInfoEnabled(false);
     $urlRouterProvider.otherwise('/garden');
+
     $stateProvider
         .state('garden', {
             url: '/garden',
@@ -39,6 +40,7 @@ angular.module('soga', ['ionic'])
         })
 })
 
+.constant('baseUrl', 'http://localhost:3000')
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
