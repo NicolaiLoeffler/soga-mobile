@@ -8,7 +8,7 @@ angular.module('soga', ['ionic'])
             url: '/garden',
             views: {
                 'menuContent': {
-                    templateUrl: '../templates/GardenOverview.html'
+                    templateUrl: 'templates/GardenOverview.html'
                 }
             }
         })
@@ -17,7 +17,7 @@ angular.module('soga', ['ionic'])
             url: '/configs',
             views: {
                 'menuContent': {
-                    templateUrl: '../templates/Configs.html'
+                    templateUrl: 'templates/Configs.html'
                 }
             }
         })
@@ -25,7 +25,7 @@ angular.module('soga', ['ionic'])
             url: '/configs/newConfig',
             views: {
                 'menuContent': {
-                    templateUrl: '../templates/NewConfig.html'
+                    templateUrl: 'templates/NewConfig.html'
                 }
             }
         })
@@ -33,7 +33,7 @@ angular.module('soga', ['ionic'])
             url: '/configs/:name',
             views: {
                 'menuContent': {
-                    templateUrl: '../templates/Config.html'
+                    templateUrl: 'templates/Config.html'
                 }
             }
         })
