@@ -11,7 +11,7 @@ angular.module('soga')
                 return $http.get(baseUrl + '/configs/' + name);
             },
             newConfig: function(data) {
-                return $http.post(baseUrl + '/newConfig', data);
+                return $http.post(baseUrl + '/configs', data);
             },
             deleteConfig: function(name) {
                 return $http.delete(baseUrl + '/configs/' + name);
