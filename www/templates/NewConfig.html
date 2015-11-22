@@ -4,17 +4,16 @@
                <span class="input-label">Configuration Name</span>
                <input ng-model="config.name" type="text" placeholder="Enter Name">
           </label>
-
-          <div class="row">
-               <div class="col">
-                    <div class="item range">
-                         <span class="icon ion-android-remove-circle" ng-click="decMoisture()"></span>
-                         <input type="range" name="volume" ng-model="config.moisture">
-                         <span class="icon ion-android-add-circle" ng-click="incMoisture()"></span>
-                    </div>
-               </div>
-               <div class="col">
-                    {{config.moisture}}
+          <div class=item>
+            <div class="row">
+                 Moisture: {{config.moisture}}
+            </div>
+               <div class="row">
+                         <div class="range moisture-range">
+                              <span class="icon ion-android-remove-circle" ng-click="decMoisture()"></span>
+                              <input type="range" name="volume" ng-model="config.moisture">
+                              <span class="icon ion-android-add-circle" ng-click="incMoisture()"></span>
+                         </div>
                </div>
           </div>
           <button ng-click="saveConfig()" class="button button-balanced button-assertive">
