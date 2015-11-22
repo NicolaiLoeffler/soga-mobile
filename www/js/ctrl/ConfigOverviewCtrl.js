@@ -24,7 +24,12 @@ angular.module('soga')
             });
             confirmPopup.then(function(res) {
                 if (res) {
-                    ConfigService.deleteConfig(name);
+                    ConfigService.deleteConfig(name)
+                        .error(function() {
+                            console.error('error');
+                        }).then(function() {
+                            $scope.configs.splice($scope.configs.indexOf(name), 1);
+                        });
                 }
             });
         };
