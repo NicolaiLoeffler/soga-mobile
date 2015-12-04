@@ -1,4 +1,4 @@
-angular.module('soga', ['ionic'])
+angular.module('soga', ['ionic', 'btford.socket-io'])
 
 .config(function($urlRouterProvider, $stateProvider, $compileProvider) {
     $compileProvider.debugInfoEnabled(false);
@@ -38,6 +38,10 @@ angular.module('soga', ['ionic'])
                 }
             }
         })
+})
+
+.factory('mySocket', function (socketFactory) {
+  return socketFactory();
 })
 
 .constant('baseUrl', 'http://localhost:3000')
