@@ -16,15 +16,15 @@
           </div>
      </div>
      <ion-content class="has-header has-subheader">
-          <div class="list">
-               <div class="item item-button-right" ng-repeat="configName in configs | filter: query">
-                    <a ng-href="#/configs/{{configName}}">
+          <ion-list>
+               <ion-item class="item-button-right no-padding" ng-repeat="configName in configs | filter: query" ng-href="#/configs/newConfig">
+                    <a>
                     {{configName}}
                     </a>
                     <button class="button button-assertive" ng-click="deleteConfig(configName)">
                          <i class="ion-ios-close-empty"></i>
                     </button>
-               </div>
-          </div>
+               </ion-item>
+          </ion-list>
      </ion-content>
 </ion-view>
