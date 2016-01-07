@@ -13,13 +13,14 @@ angular.module('soga')
         mySocket.on('device:waterlevel', function(data) {
           console.info(data.waterlevel);
           $scope.devices.waterlevel = data.waterlevel;
-          $scope.waterheight = data.waterlevel+"%";
+          setWaterHeight(data.waterlevel);
           $scope.$apply();
         });
 
         GardenService.getDevices()
             .then(function(resp) {
                 $scope.devices = resp.data;
+                setWaterHeight($scope.devices[0].waterlevel);
             });
 
         ConfigService.getConfigs()
@@ -30,5 +31,9 @@ angular.module('soga')
         $scope.assignConfig = function(device) {
             console.info(device);
             GardenService.assignConfig(device);
+        }
+
+        function setWaterHeight(waterlevel) {
+            $scope.waterheight = waterlevel + '%';
         }
     });
