@@ -45,3 +45,8 @@
 .no-padding {
     padding: 0;
 }
+
+.config-name {
+    color: black;
+    text-decoration: none;
+}
