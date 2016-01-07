@@ -3,3 +3,29 @@
   padding: 0;
   width: 100%
 }
+
+.tank {
+    /* size */
+    width: 150px;
+    height: 300px;
+
+    /* colors */
+    border: 2px solid black;
+    background: white;
+
+    position: relative; /* to allow positioning the water at bottom */
+
+    display: inline-block; /* so the div doesn't wrap */
+    margin: 10px; /* space between divs */
+}
+
+.tank .water {
+    position: absolute;
+
+    /* color of water */
+    background: #4dd2ff;
+
+    /* water position */
+    width: 100%;
+    bottom: 0;
+}
