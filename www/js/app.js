@@ -40,8 +40,11 @@ angular.module('soga', ['ionic', 'btford.socket-io'])
         })
 })
 
-.factory('mySocket', function (socketFactory) {
-  return socketFactory();
+.factory('mySocket', function(socketFactory) {
+    mySocket = socketFactory({
+        ioSocket: io.connect('http://localhost:3000')
+    });
+    return mySocket;
 })
 
 .constant('baseUrl', 'http://localhost:3000')
