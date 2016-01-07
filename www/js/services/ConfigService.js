@@ -17,7 +17,7 @@ angular.module('soga')
                 return $http.delete(baseUrl + '/configs/' + name);
             },
             saveConfig: function(data) {
-                return $http.put(baseUrl + '/configs', data);
+                return $http.put(baseUrl + '/configs/' + data.name, data);
             }
         };
     });
