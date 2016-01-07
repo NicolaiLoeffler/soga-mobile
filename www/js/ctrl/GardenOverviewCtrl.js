@@ -3,10 +3,19 @@
  */
 
 angular.module('soga')
-    .controller('GardenOverviewCtrl', function($scope, GardenService, ConfigService) {
+    .controller('GardenOverviewCtrl', function($scope, GardenService, ConfigService, mySocket) {
         $scope.devices;
         $scope.configs;
         $scope.sel;
+
+        $scope.waterheight = "";
+
+        mySocket.on('device:waterlevel', function(data) {
+          console.info(data.waterlevel);
+          $scope.devices.waterlevel = data.waterlevel;
+          $scope.waterheight = data.waterlevel+"%";
+          $scope.$apply();
+        });
 
         GardenService.getDevices()
             .then(function(resp) {
