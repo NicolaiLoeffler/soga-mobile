@@ -17,8 +17,8 @@
      </div>
      <ion-content class="has-header has-subheader">
           <ion-list>
-               <ion-item class="item-button-right no-padding" ng-repeat="configName in configs | filter: query" ng-href="#/configs/newConfig">
-                    <a class="config-name" ng-href="#/configs/newConfig">
+               <ion-item class="item-button-right no-padding" ng-repeat="configName in configs | filter: query" ng-href="#/configs/{{configName}}">
+                    <a class="config-name" ng-href="#/configs/{{configName}}">
                         {{configName}}
                     </a>
                     <button class="button button-assertive" ng-click="deleteConfig(configName)">

@@ -16,21 +16,19 @@ angular.module('soga')
                 console.info(resp.data);
             });
 
-        // A confirm dialog
-        $scope.deleteConfig = function(name) {
-            var confirmPopup = $ionicPopup.confirm({
-                title: 'Confirmation',
-                template: 'Are you sure you want to delete this configuration?'
-            });
-            confirmPopup.then(function(res) {
-                if (res) {
-                    ConfigService.deleteConfig(name);
-                }
-            });
+        $scope.incMoisture = function() {
+            if ($scope.config.moisture != 100) {
+                $scope.config.moisture = +$scope.config.moisture + 1;
+            }
+        };
+
+        $scope.decMoisture = function() {
+            if ($scope.config.moisture != 0) {
+                $scope.config.moisture = +$scope.config.moisture - 1;
+            }
         };
 
         $scope.saveConfig = function() {
-            console.info($scope.config);
             ConfigService.saveConfig($scope.config);
         };
     });

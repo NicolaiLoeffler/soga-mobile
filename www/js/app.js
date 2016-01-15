@@ -42,12 +42,12 @@ angular.module('soga', ['ionic', 'btford.socket-io'])
 
 .factory('mySocket', function(socketFactory) {
     mySocket = socketFactory({
-        ioSocket: io.connect(baseUrl)
+        ioSocket: io.connect('http://192.168.2.4:3000')
     });
     return mySocket;
 })
 
-.constant('baseUrl', 'http://192.168.2.2:3000')
+.constant('baseUrl', 'http://192.168.2.4:3000')
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
