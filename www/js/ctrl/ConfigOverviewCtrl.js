@@ -13,7 +13,6 @@ angular.module('soga')
             })
             .then(function(resp) {
                 $scope.configs = resp.data;
-                console.info(resp.data);
             });
 
         // A confirm dialog
@@ -25,8 +24,8 @@ angular.module('soga')
             confirmPopup.then(function(res) {
                 if (res) {
                     ConfigService.deleteConfig(name)
-                        .error(function() {
-                            console.error('error');
+                        .error(function(error) {
+                            console.error(error);
                         }).then(function() {
                             $scope.configs.splice($scope.configs.indexOf(name), 1);
                         });

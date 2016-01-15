@@ -13,7 +13,6 @@ angular.module('soga')
             })
             .then(function(resp) {
                 $scope.config = resp.data;
-                console.info(resp.data);
             });
 
         $scope.incMoisture = function() {
