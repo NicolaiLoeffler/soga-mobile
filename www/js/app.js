@@ -38,6 +38,14 @@ angular.module('soga', ['ionic', 'btford.socket-io'])
                 }
             }
         })
+        .state('chat', {
+            url: '/chat/:name',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/Chat.html'
+                }
+            }
+        })
 })
 
 .factory('mySocket', function(socketFactory) {
