@@ -39,7 +39,7 @@ angular.module('soga', ['ionic', 'btford.socket-io'])
             }
         })
         .state('chat', {
-            url: '/chat/:name',
+            url: '/chat',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/Chat.html'
