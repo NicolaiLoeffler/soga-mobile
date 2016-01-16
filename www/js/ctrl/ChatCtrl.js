@@ -37,6 +37,6 @@ angular.module('soga')
             var messageClone = lodash.cloneDeep($scope.message);
             $scope.message.content = '';
             $scope.messages.push(messageClone);
-            mysocket.emit('chat:newMessage' message);
+            mySocket.emit('chat:newMessage', messageClone);
         };
     });
