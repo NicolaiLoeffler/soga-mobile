@@ -5,7 +5,7 @@
 angular.module('soga')
     .controller('ChatCtrl', function($scope) {
 
-        $scope.test = 'hallo'
+        $scope.user = 'Nico';
 
         $scope.messages = [
             {
