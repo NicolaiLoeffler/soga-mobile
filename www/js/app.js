@@ -1,4 +1,4 @@
-angular.module('soga', ['ionic', 'btford.socket-io'])
+angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash'])
 
 .config(function($urlRouterProvider, $stateProvider, $compileProvider) {
     $compileProvider.debugInfoEnabled(false);
