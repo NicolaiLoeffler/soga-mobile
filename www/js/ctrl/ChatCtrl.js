@@ -3,7 +3,7 @@
  */
 
 angular.module('soga')
-    .controller('ChatCtrl', function($scope, lodash) {
+    .controller('ChatCtrl', function($scope, lodash, mySocket) {
 
         $scope.user = 'Nico';
         $scope.message = {
@@ -26,12 +26,17 @@ angular.module('soga')
             }
         ];
 
+        mySocket.on('chat:message', function(message) {
+            if(message.user === $scope.user) return;
+            $scope.messages.push(message);
+        });
+
         $scope.sendMessage = function() {
             if($scope.message.content === '') return;
             console.log('sending message ' + $scope.message.content);
             var messageClone = lodash.cloneDeep($scope.message);
             $scope.message.content = '';
             $scope.messages.push(messageClone);
+            mysocket.emit('chat:newMessage' message);
         };
-
     });
