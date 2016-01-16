@@ -1,0 +1,11 @@
+<ion-view view-title="Chat" ng-controller="ChatCtrl">
+     <ion-content has-bouncing="true" class="content">
+          <div>
+               <ul>
+                    <li ng-repeat="message in messages">
+                         <span>{{message.user}} : </span>{{message.content}}
+                    </li>
+               </ul>
+          </div>
+     </ion-content>
+</ion-view>
