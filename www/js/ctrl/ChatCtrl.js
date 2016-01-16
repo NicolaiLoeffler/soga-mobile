@@ -6,6 +6,10 @@ angular.module('soga')
     .controller('ChatCtrl', function($scope) {
 
         $scope.user = 'Nico';
+        $scope.message = {
+            user: $scope.user,
+            content: ''
+        };
 
         $scope.messages = [
             {
@@ -21,5 +25,10 @@ angular.module('soga')
               user: 'dummy'
             }
         ];
+
+        $scope.sendMessage = function() {
+            console.log('sending message' + $scope.message.content);
+            $scope.messages.push($scope.message);
+        };
 
     });
