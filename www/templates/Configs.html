@@ -1,6 +1,6 @@
 <ion-view view-title="Configurations" ng-controller="ConfigOverviewCtrl">
      <div class="bar bar-subheader">
-          <a class="button button-balanced ion-plus new-config-button" ng-href="#/configs/newConfig">
+          <a class="button button-balanced ion-plus new-config-button" ng-href="#/menu/configs/newConfig">
                New
           </a>
           <div class="searchbar-container">
@@ -17,8 +17,8 @@
      </div>
      <ion-content class="has-header has-subheader">
           <ion-list>
-               <ion-item class="item-button-right no-padding" ng-repeat="configName in configs | filter: query" ng-href="#/configs/{{configName}}">
-                    <a class="config-name" ng-href="#/configs/{{configName}}">
+               <ion-item class="item-button-right no-padding" ng-repeat="configName in configs | filter: query" ng-href="#/menu/configs/{{configName}}">
+                    <a class="config-name" ng-href="#/menu/configs/{{configName}}">
                         {{configName}}
                     </a>
                     <button class="button button-assertive" ng-click="deleteConfig(configName)">

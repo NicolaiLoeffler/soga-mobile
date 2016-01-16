@@ -2,10 +2,19 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash'])
 
 .config(function($urlRouterProvider, $stateProvider, $compileProvider) {
     $compileProvider.debugInfoEnabled(false);
-    $urlRouterProvider.otherwise('/garden');
+    $urlRouterProvider.otherwise('login');
 
     $stateProvider
-        .state('garden', {
+        .state('menu', {
+          url : "/menu",
+          abstract : true,
+          templateUrl : "templates/Menu.html"
+        })
+        .state("login", {
+          url : "/login",
+          templateUrl : 'templates/Login.html'
+        })
+        .state('menu.garden', {
             url: '/garden',
             views: {
                 'menuContent': {
@@ -13,7 +22,7 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash'])
                 }
             }
         })
-        .state('configs', {
+        .state('menu.configs', {
             cache: false,
             url: '/configs',
             views: {
@@ -22,7 +31,7 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash'])
                 }
             }
         })
-        .state('newConfig', {
+        .state('menu.newConfig', {
             url: '/configs/newConfig',
             views: {
                 'menuContent': {
@@ -30,7 +39,7 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash'])
                 }
             }
         })
-        .state('config', {
+        .state('menu.config', {
             url: '/configs/:name',
             views: {
                 'menuContent': {
@@ -38,7 +47,7 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash'])
                 }
             }
         })
-        .state('chat', {
+        .state('menu.chat', {
             url: '/chat',
             views: {
                 'menuContent': {

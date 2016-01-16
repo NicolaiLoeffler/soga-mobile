@@ -3,9 +3,9 @@
  */
 
 angular.module('soga')
-    .controller('ChatCtrl', function($scope, lodash, mySocket) {
+    .controller('ChatCtrl', function($scope, lodash, mySocket, $rootScope) {
 
-        $scope.user = 'Nico';
+        $scope.user = $rootScope.username;
         $scope.message = {
             user: $scope.user,
             content: ''
@@ -32,6 +32,7 @@ angular.module('soga')
         });
 
         $scope.sendMessage = function() {
+            console.log($rootScope.username);
             if($scope.message.content === '') return;
             console.log('sending message ' + $scope.message.content);
             var messageClone = lodash.cloneDeep($scope.message);
