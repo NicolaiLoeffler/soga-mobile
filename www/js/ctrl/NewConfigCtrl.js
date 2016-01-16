@@ -1,5 +1,5 @@
 angular.module('soga')
-    .controller('NewConfigCtrl', function($scope, $ionicPopup, ConfigService) {
+    .controller('NewConfigCtrl', function($scope, $ionicPopup, $state, ConfigService) {
 
         $scope.config = {
             name: '',
@@ -19,21 +19,16 @@ angular.module('soga')
         };
 
         $scope.saveConfig = function() {
-            //data[$scope.config.name] = $scope.config.moisture;
             ConfigService.newConfig($scope.config)
-                .error(function(resp) {
-
-                })
-                .then(function(resp) {
-                    $scope.showAlert = function() {
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Configuration creation',
-                            template: 'Confiuration was successfully created'
-                        });
-                        alertPopup.then(function(res) {
-                            console.log('Thank you for not eating my delicious ice cream cone');
-                        });
-                    };
+                .success(function(resp) {
+                    console.log('success');
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Configuration creation',
+                        template: 'Confiuration was successfully created'
+                    });
+                    alertPopup.then(function(res) {
+                        $state.go('configs');
+                    });
                 });
         };
     });

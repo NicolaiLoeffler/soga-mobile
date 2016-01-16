@@ -11,7 +11,6 @@ angular.module('soga')
         $scope.waterheight = "";
 
         mySocket.on('backend:waterlevel', function(data) {
-          //console.info(data);
           $scope.devices[0].waterlevel = data.value;
           setWaterHeight(data.value);
           $scope.$apply();
