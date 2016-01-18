@@ -10,21 +10,6 @@ angular.module('soga')
             content: ''
         };
 
-        $scope.messages = [
-            {
-              content: 'Hallo',
-              user: 'Nico'
-            },
-            {
-              content: 'Test',
-              user: 'System'
-            },
-            {
-              content: 'jooooooooooooooo',
-              user: 'dummy'
-            }
-        ];
-
         mySocket.on('chat:message', function(message) {
             if(message.user === $scope.user) return;
             $scope.messages.push(message);
