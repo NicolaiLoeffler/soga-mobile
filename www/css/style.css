@@ -59,6 +59,8 @@
     border-radius: 5px;
     color: #fff;
     position: relative;
+    width: auto;
+    max-width: 300px;
 }
 
 .right-message {
