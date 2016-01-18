@@ -52,6 +52,10 @@
   clear: both;
 }
 
+.content{
+	bottom:70px;
+}
+
 .left-message {
   background-color: #c9c9c9;
 }
