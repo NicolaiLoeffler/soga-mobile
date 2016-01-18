@@ -3,8 +3,8 @@
           <div>
                <ul>
                     <li class="message-container" ng-repeat="message in messages">
-                         <div class="message" ng-class="{'right-message': message.user !== $root.username}">
-                              <span>{{message.user}} : </span>
+                         <div class="message" ng-class="{'right-message': message.user !== $root.username, 'left-message': message.user === $root.username}">
+                              <span>{{message.user}}:</span><br>
                               {{message.content}}
                          </div>
                     </li>

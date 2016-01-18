@@ -53,18 +53,51 @@
 
 .message {
     padding: 5px;
-    margin: 2px 5px 2px 5px;
+    margin: 2px 12px 2px 12px;
     display: inline-block;
-    background-color: #11c1f3;
-    border-radius: 5px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
     color: #fff;
     position: relative;
     width: auto;
     max-width: 300px;
 }
 
+.left-message:before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #c9c9c9;
+  border-bottom: 10px solid transparent;
+  clear: both;
+}
+
+.left-message {
+  background-color: #c9c9c9;
+}
+
 .right-message {
     float: right;
+    background-color: #9ad3de;
+}
+
+.right-message:after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #9ad3de;
+  border-bottom: 10px solid transparent;
+  clear: both;
 }
 
 .message-container {
