@@ -8,17 +8,19 @@ angular.module('soga')
         $scope.configs;
         $scope.sel;
 
+
         $scope.waterheight = "";
 
         mySocket.on('backend:waterlevel', function(data) {
-          $scope.devices[0].waterlevel = data.value;
-          setWaterHeight(data.value);
-          $scope.$apply();
+            $scope.devices[0].waterlevel = data.value;
+            setWaterHeight(data.value);
+            $scope.$apply();
         });
 
         GardenService.getDevices()
             .then(function(resp) {
-                $scope.devices = resp.data;
+                $scope.devices = resp.data
+                $scope.devices[0].moisture = 30;
                 setWaterHeight($scope.devices[0].waterlevel);
             });
 
@@ -31,6 +33,19 @@ angular.module('soga')
             console.info(device);
             GardenService.assignConfig(device);
         }
+
+        $scope.getStyle = function() {
+            var transform = ($scope.isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
+            return {
+                'top': $scope.isSemi ? 'auto' : '50%',
+                'bottom': $scope.isSemi ? '5%' : 'auto',
+                'left': '50%',
+                'transform': transform,
+                '-moz-transform': transform,
+                '-webkit-transform': transform,
+                'font-size': $scope.radius / 3.5 + 'px'
+            };
+        };
 
         function setWaterHeight(waterlevel) {
             $scope.waterheight = waterlevel + '%';

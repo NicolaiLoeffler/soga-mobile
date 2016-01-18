@@ -16,9 +16,24 @@
                     </select>
                </label>
                <div class="item">
-                    Waterlevel: {{device.waterlevel}}
-                    <div class="tank">
-                         <div class="water" ng-style="{'height': waterheight}"></div>
+                    <div class="row">
+                         <div class="col col-50 text-center">
+                           Waterlevel
+
+                              <div class="progress-wrapper">
+                                   <div class="progress" ng-style="getStyle()">{{device.waterlevel}}</div>
+                                   <div class="progress" round-progress max="100" current="device.waterlevel" color="#45ccce" bgcolor="#eaeaea" radius="100" stroke="20" rounded="true" clockwise="false" responsive="true" duration="800" animation="easeInOutQuart" animation-delay="0">
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col col-50 text-center">
+                              Moisture
+                              <div class="progress-wrapper">
+                                   <div class="progress" ng-style="getStyle()">{{device.moisture}}</div>
+                                   <div class="progress" round-progress max="100" current="device.moisture" color="#8d6e63" bgcolor="#eaeaea" radius="100" stroke="20" rounded="true" clockwise="false" responsive="true" duration="800" animation="easeInOutQuart" animation-delay="0">
+                                   </div>
+                              </div>
+                         </div>
                     </div>
                </div>
           </div>

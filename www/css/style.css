@@ -75,3 +75,15 @@
 	bottom:0px;
 	width: 100%;
 }
+
+.progress-wrapper{
+    position: relative;
+    margin:20px auto;
+    font-size: 20px;
+}
+.progress{
+    position: absolute;
+    color: #444;
+    font-weight: 100;
+    line-height: 1;
+}
