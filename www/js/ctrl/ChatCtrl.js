@@ -3,7 +3,9 @@
  */
 
 angular.module('soga')
-    .controller('ChatCtrl', function($scope, lodash, mySocket, $rootScope) {
+    .controller('ChatCtrl', function($scope, lodash, mySocket, $rootScope, $ionicScrollDelegate) {
+
+        $scope.messages = [];
 
         $scope.message = {
             user: $rootScope.username,
@@ -13,6 +15,7 @@ angular.module('soga')
         mySocket.on('chat:message', function(message) {
             if(message.user === $scope.user) return;
             $scope.messages.push(message);
+            $ionicScrollDelegate.scrollBottom(true);
         });
 
         $scope.sendMessage = function() {
@@ -22,5 +25,6 @@ angular.module('soga')
             $scope.message.content = '';
             $scope.messages.push(messageClone);
             mySocket.emit('chat:newMessage', messageClone);
+            $ionicScrollDelegate.scrollBottom(true);
         };
     });
