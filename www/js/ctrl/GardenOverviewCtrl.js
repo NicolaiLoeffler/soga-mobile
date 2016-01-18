@@ -8,12 +8,8 @@ angular.module('soga')
         $scope.configs;
         $scope.sel;
 
-
-        $scope.waterheight = "";
-
         mySocket.on('backend:waterlevel', function(data) {
             $scope.devices[0].waterlevel = data.value;
-            setWaterHeight(data.value);
             $scope.$apply();
         });
 
@@ -21,7 +17,6 @@ angular.module('soga')
             .then(function(resp) {
                 $scope.devices = resp.data
                 $scope.devices[0].moisture = 30;
-                setWaterHeight($scope.devices[0].waterlevel);
             });
 
         ConfigService.getConfigs()
@@ -46,8 +41,4 @@ angular.module('soga')
                 'font-size': $scope.radius / 3.5 + 'px'
             };
         };
-
-        function setWaterHeight(waterlevel) {
-            $scope.waterheight = waterlevel + '%';
-        }
     });
