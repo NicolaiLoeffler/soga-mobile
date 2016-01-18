@@ -3,7 +3,7 @@
  */
 
 angular.module('soga')
-    .controller('ChatCtrl', function($scope, lodash, mySocket, $rootScope, $ionicScrollDelegate) {
+    .controller('ChatCtrl', function($scope, lodash, mySocket, $rootScope, $ionicScrollDelegate, $http, baseUrl) {
 
         $scope.messages = [];
 
@@ -11,6 +11,12 @@ angular.module('soga')
             user: $rootScope.username,
             content: ''
         };
+
+        $http.get(baseUrl + '/messages')
+            .then(function(response) {
+                console.log(response.data);
+                $scope.messages = response.data;
+            });
 
         mySocket.on('chat:message', function(message) {
             if(message.user === $scope.user) return;
