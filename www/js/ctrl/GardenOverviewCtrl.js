@@ -3,10 +3,19 @@
  */
 
 angular.module('soga')
-    .controller('GardenOverviewCtrl', function($scope, GardenService, ConfigService, mySocket) {
+    .controller('GardenOverviewCtrl', function($scope, $rootScope, GardenService, ConfigService, mySocket) {
         $scope.devices;
         $scope.configs;
         $scope.sel;
+
+        $scope.getAllConfigs = function() {
+          ConfigService.getConfigs()
+              .then(function(resp) {
+                  $scope.configs = resp.data;
+              });
+        };
+        
+        $scope.getAllConfigs();
 
         mySocket.on('backend:waterlevel', function(data) {
             $scope.devices[0].waterlevel = data.value;
@@ -24,15 +33,10 @@ angular.module('soga')
                 $scope.devices[0].moisture = 30;
             });
 
-        ConfigService.getConfigs()
-            .then(function(resp) {
-                $scope.configs = resp.data;
-            });
-
         $scope.assignConfig = function(device) {
             console.info(device);
             GardenService.assignConfig(device);
-        }
+        };
 
         $scope.getStyle = function() {
             var transform = ($scope.isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
@@ -46,4 +50,12 @@ angular.module('soga')
                 'font-size': $scope.radius / 3.5 + 'px'
             };
         };
-    });
+
+
+        $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams) {
+                if(toState.url == '/garden') {
+                    $scope.getAllConfigs();
+                }
+            });
+});
