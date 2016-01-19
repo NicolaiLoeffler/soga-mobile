@@ -59,12 +59,12 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash', 'angular-svg-ro
 
 .factory('mySocket', function(socketFactory) {
     mySocket = socketFactory({
-        ioSocket: io.connect('http://192.168.0.102:3000')
+        ioSocket: io.connect('http://localhost:3000')
     });
     return mySocket;
 })
 
-.constant('baseUrl', 'http://192.168.0.102:3000')
+.constant('baseUrl', 'http://localhost:3000')
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

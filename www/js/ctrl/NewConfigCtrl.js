@@ -27,7 +27,7 @@ angular.module('soga')
                         template: 'Confiuration was successfully created'
                     });
                     alertPopup.then(function(res) {
-                        $state.go('configs');
+                        $state.go('menu.configs');
                     });
                 });
         };

@@ -3,7 +3,7 @@
  */
 
 angular.module('soga')
-    .controller('ConfigOverviewCtrl', function($scope, $ionicPopup, ConfigService) {
+    .controller('ConfigOverviewCtrl', function($scope, $ionicPopup, $state, ConfigService) {
         $scope.configs;
         $scope.query;
 
@@ -24,10 +24,12 @@ angular.module('soga')
             confirmPopup.then(function(res) {
                 if (res) {
                     ConfigService.deleteConfig(name)
+                        .success(function() {
+                            $scope.configs.splice($scope.configs.indexOf(name), 1);
+                            $state.go("menu.configs");
+                        })
                         .error(function(error) {
                             console.error(error);
-                        }).then(function() {
-                            $scope.configs.splice($scope.configs.indexOf(name), 1);
                         });
                 }
             });
