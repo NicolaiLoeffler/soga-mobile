@@ -13,6 +13,11 @@ angular.module('soga')
             $scope.$apply();
         });
 
+        mySocket.on('backend:moisture', function(data) {
+            $scope.devices[0].moisture = data.value;
+            $scope.$apply();
+        });
+
         GardenService.getDevices()
             .then(function(resp) {
                 $scope.devices = resp.data
