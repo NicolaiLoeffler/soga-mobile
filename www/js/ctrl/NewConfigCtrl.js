@@ -24,7 +24,7 @@ angular.module('soga')
                     console.log('success');
                     var alertPopup = $ionicPopup.alert({
                         title: 'Configuration creation',
-                        template: 'Confiuration was successfully created'
+                        template: 'Confiuration ' + $scope.config.name + ' successfully created'
                     });
                     alertPopup.then(function(res) {
                         $state.go('menu.configs');
