@@ -39,6 +39,22 @@
     max-width: 300px;
 }
 
+.system-message {
+    padding: 5px;
+    margin: auto;
+    display: block;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    color: black;
+    border: 1px solid grey;
+    background-color: white;
+    position: relative;
+    width: 90%;
+    clear: both;
+}
+
 .left-message:before {
   content: '';
   position: absolute;
@@ -81,6 +97,7 @@
 .message-container {
     display: block;
     clear: right;
+    position: relative;
 }
 
 .bottommsg{

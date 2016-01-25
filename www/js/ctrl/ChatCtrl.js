@@ -9,7 +9,8 @@ angular.module('soga')
 
         $scope.message = {
             user: $rootScope.username,
-            content: ''
+            content: '',
+            system: false
         };
 
         $http.get(baseUrl + '/messages')
