@@ -10,7 +10,7 @@ angular.module('soga')
 
         $scope.labels = ["", "", "", "", "", "", ""];
         $scope.series = ["waterlevel"];
-        $scope.data = [[28, 93, 40, 19, 86, 27, 90]];
+        $scope.data = [[0, 0, 0, 0, 0, 0, 0]];
 
         $scope.getAllConfigs = function() {
           ConfigService.getConfigs()
@@ -40,6 +40,16 @@ angular.module('soga')
 
         mySocket.on('backend:moisture', function(data) {
             $scope.devices[0].moisture = data.value;
+            $scope.$apply();
+        });
+
+        mySocket.on('device:online', function(data) {
+            $scope.devices[0].status = 'connected';
+            $scope.$apply();
+        });
+
+        mySocket.on('device:offline', function() {
+          $scope.devices[0].status = 'disconnected';
             $scope.$apply();
         });
 
