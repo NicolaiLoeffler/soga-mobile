@@ -1,4 +1,4 @@
-angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash', 'angular-svg-round-progress'])
+angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash', 'angular-svg-round-progress', 'chart.js'])
 
 .config(function($urlRouterProvider, $stateProvider, $compileProvider) {
     $compileProvider.debugInfoEnabled(false);
@@ -59,12 +59,12 @@ angular.module('soga', ['ionic', 'btford.socket-io', 'ngLodash', 'angular-svg-ro
 
 .factory('mySocket', function(socketFactory) {
     mySocket = socketFactory({
-        ioSocket: io.connect('http://localhost:3000')
+        ioSocket: io.connect('http://192.168.2.3:3000')
     });
     return mySocket;
 })
 
-.constant('baseUrl', 'http://localhost:3000')
+.constant('baseUrl', 'http://192.168.2.3:3000')
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

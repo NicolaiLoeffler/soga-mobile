@@ -8,14 +8,30 @@ angular.module('soga')
         $scope.configs;
         $scope.sel;
 
+        $scope.labels = ["", "", "", "", "", "", ""];
+        $scope.series = ["waterlevel"];
+        $scope.data = [[28, 93, 40, 19, 86, 27, 90]];
+
         $scope.getAllConfigs = function() {
           ConfigService.getConfigs()
               .then(function(resp) {
                   $scope.configs = resp.data;
               });
         };
-        
+
+        $scope.getWaterLevels = function() {
+          GardenService.getWaterLevels()
+              .then(function(resp) {
+                  var values = [];
+                  for(var i = resp.data.length - 1; i>=0; --i) {
+                      values.push(resp.data[i].value);
+                  }
+                  $scope.data = [values];
+              });
+        };
+
         $scope.getAllConfigs();
+        $scope.getWaterLevels();
 
         mySocket.on('backend:waterlevel', function(data) {
             $scope.devices[0].waterlevel = data.value;
@@ -56,6 +72,7 @@ angular.module('soga')
             function(event, toState, toParams, fromState, fromParams) {
                 if(toState.url == '/garden') {
                     $scope.getAllConfigs();
+                    $scope.getWaterLevels();
                 }
             });
 });

@@ -9,6 +9,9 @@ angular.module('soga')
             },
             assignConfig: function(device) {
                 return $http.post(baseUrl + '/devices', device);
+            },
+            getWaterLevels: function() {
+                return $http.get(baseUrl + '/waterlevels');
             }
         };
     });
