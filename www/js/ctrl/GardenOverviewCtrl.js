@@ -56,7 +56,6 @@ angular.module('soga')
         GardenService.getDevices()
             .then(function(resp) {
                 $scope.devices = resp.data
-                $scope.devices[0].moisture = 30;
             });
 
         $scope.assignConfig = function(device) {
